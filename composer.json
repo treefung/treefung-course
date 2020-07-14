@@ -1,0 +1,33 @@
+{
+    "name": "treefung/treefung-course",
+    "description": "课程 Composer 包",
+    "type": "library",
+    "license": "WTFPL",
+    "authors": [
+        {
+            "name": "iFung",
+            "email": "dev@ifung.cn"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Treefung\\Course\\": "src/"
+        }
+    },
+    "repositories": {
+
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Treefung\\Course\\CourseServiceProvider"
+            ],
+            "aliases": {
+                "Course": "Treefung\\Course\\Facades\\Course"
+            }
+        }
+    }
+}
