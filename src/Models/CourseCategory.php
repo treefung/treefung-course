@@ -24,6 +24,16 @@ class CourseCategory extends BaseModel {
         }
     }
 
+    // set 删除 oss 地址
+    public function setBannerPathAttribute($value) {
+
+        if($value) {
+            $value = str_replace(env('OSS_URL'),'',$value);
+        }
+        $this->attributes['bannerPath'] = $value;
+    }
+
+
 
     public static function list() {
 
