@@ -23,6 +23,15 @@ class CourseSection extends BaseModel {
 
         parent::boot();
 
+        self::saved(function (self $self) {
+
+            $sectionNum = $self::query()->where('courseId', $self->courseId)->count();
+            $course = Course::query()->find($self->courseId);
+            $course->sectionNum = $sectionNum;
+            $course->save();
+
+        });
+
         /* 此方法不适用统计数量 循环查询检出同样执行
         self::retrieved(function (self $self) {
             // 检索读出数据时 section 播放次数+1
